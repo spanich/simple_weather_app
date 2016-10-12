@@ -1,0 +1,12 @@
+* { border: 0; margin: 0; padding: 0; }
+
+body {
+  font: 13px/21px "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, form, div {
+  margin: 10px;
+}
+
+#current_weather {
+}
