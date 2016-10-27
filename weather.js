@@ -1,11 +1,34 @@
 function render(data) {
-      console.log('render', data)
       var element = document.getElementById('current_weather');
-      element.innerHTML = "The weather for " + data.day + ", " + data.date + " is "+ data.text + ", with a high of " + data.high +" and a low of " + data.low;
+      var forecast = document.getElementById('show_weather');
+      element.innerHTML = "";
+      forecast.innerHTML = "";
+      console.log('render', data)
+
+      element.innerHTML = today_display(data[0]);
+
+      for (var i =1; i<4; i++){
+          forecast.innerHTML += forecast_display(data[i]);
+      }
+
+    }
+    var today_display = function (today){
+        return "The weather for " + today.day + ", " + today.date + " is "+ today.text + ", with a high of " + today.high +" and a low of " + today.low;
+    }
+
+    var forecast_display = function (future){
+        return `
+        <div class="forecast_display">
+          <img src="" alt="today">
+          <p>` + future.day + `</p>
+          <p>` + future.text + `</p>
+          <p>Low: ` + future.low + `</p>
+          <p>High: ` + future.high + `</p>
+       </div>`
     }
 
     var callbackFunction = function(data) {
-      render(data.query.results.channel.item.forecast[0]);
+      render(data.query.results.channel.item.forecast);
     };
 
     // (address: string)

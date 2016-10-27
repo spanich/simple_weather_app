@@ -10,3 +10,8 @@ h1, h2, h3, form, div {
 
 #current_weather {
 }
+
+.forecast_display{
+    border: 2px solid black;
+    display: inline-block;
+}
