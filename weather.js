@@ -1,7 +1,9 @@
 function render(data) {
+      var main = document.getElementById('main_container');
+      main.innerHTML = show_info();
       var element = document.getElementById('current_weather');
       var forecast = document.getElementById('show_weather');
-      element.innerHTML = "";
+
       forecast.innerHTML = "";
       console.log('render', data)
 
@@ -25,6 +27,14 @@ function render(data) {
           <p>Low: ` + future.low + `</p>
           <p>High: ` + future.high + `</p>
        </div>`
+    }
+    function show_info(){
+        return `
+          <div id="current_weather">
+           </div>
+           <div id="show_weather">
+           </div>
+        `
     }
 
     var callbackFunction = function(data) {
